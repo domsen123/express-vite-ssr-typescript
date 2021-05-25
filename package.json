@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "NODE_ENV=development TS_NODE_PROJECT=tsconfig.server.json tsnd --respawn --transpile-only -r tsconfig-paths/register server/main",
     "build": "pnpm clean && pnpm build:client & pnpm build:server",
-    "build:client": "vite build --ssrManifest --outDir dist/client",
-    "build:server": "vite build --ssr app/entry-server.ts --outDir dist/server",
-    "clean": "rm -rf dist",
+    "build:client": "vite build --ssrManifest --outDir _dist/client",
+    "build:server": "vite build --ssr app/entry-server.ts --outDir _dist/server",
+    "clean": "rm -rf _dist",
     "serve": "NODE_ENV=production TS_NODE_PROJECT=tsconfig.server.json tsnd --transpile-only -r tsconfig-paths/register server/main"
   },
   "author": "Dominic Marx",

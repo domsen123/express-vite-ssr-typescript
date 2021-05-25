@@ -14,12 +14,12 @@ const createServer = async (
   const app = express();
 
   const indexProd = isProd
-    ? fs.readFileSync(resolve('../dist/client/index.html'), 'utf-8')
+    ? fs.readFileSync(resolve('../_dist/client/index.html'), 'utf-8')
     : '';
 
   const manifest = isProd
     ? // @ts-ignore
-      require('../dist/client/ssr-manifest.json')
+      require('../_dist/client/ssr-manifest.json')
     : {};
 
   let vite: ViteDevServer;
@@ -34,7 +34,7 @@ const createServer = async (
     app.use(vite.middlewares);
   } else {
     app.use(compression());
-    app.use(serveStatic(resolve('../dist/client'), { index: false }));
+    app.use(serveStatic(resolve('../_dist/client'), { index: false }));
   }
 
   app.get('*', async (req, res) => {
@@ -48,7 +48,7 @@ const createServer = async (
         render = (await vite.ssrLoadModule('app/entry-server.ts')).render;
       } else {
         template = indexProd;
-        render = require('../dist/server/entry-server.js').render;
+        render = require('../_dist/server/entry-server.js').render;
       }
       const [appHtml, preloadLinks] = await render(url, manifest);
 
