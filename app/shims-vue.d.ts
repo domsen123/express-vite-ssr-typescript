@@ -3,3 +3,7 @@ declare module '*.vue' {
   const component: ReturnType<typeof defineComponent>;
   export default component;
 }
+
+declare interface Window {
+  // extend the window
+}
