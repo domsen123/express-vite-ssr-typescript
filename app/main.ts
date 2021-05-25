@@ -1,5 +1,4 @@
-import 'windi.css';
-import './styles/main.css';
+import 'virtual:windi.css';
 import App from './App.vue';
 import { createSSRApp } from 'vue';
 import { createRouter } from './router';

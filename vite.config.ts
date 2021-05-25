@@ -48,7 +48,10 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-windicss
     WindiCSS({
-      safelist: 'prose prose-sm m-auto',
+      scan: {
+        include: ['app/**/*.{vue,html,jsx,tsx}'],
+        exclude: ['node_modules', '.git'],
+      },
     }),
   ],
   optimizeDeps: {
