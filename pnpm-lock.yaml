@@ -1,12 +1,15 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@iconify/json': ^1.1.348
   '@types/compression': ^1.7.0
   '@types/express': ^4.17.11
   '@types/node': ^15.6.1
   '@vitejs/plugin-vue': ^1.2.2
   '@vue/compiler-sfc': ^3.0.11
   '@vue/server-renderer': ^3.0.11
+  '@vueuse/core': ^4.11.1
+  '@vueuse/head': ^0.5.1
   compression: ^1.7.4
   express: ^4.17.1
   nodemon: ^2.0.7
@@ -26,12 +29,14 @@ specifiers:
 dependencies:
   '@vitejs/plugin-vue': 1.2.2_@vue+compiler-sfc@3.0.11
   '@vue/server-renderer': 3.0.11_vue@3.0.11
+  '@vueuse/core': 4.11.1_vue@3.0.11
+  '@vueuse/head': 0.5.1_vue@3.0.11
   compression: 1.7.4
   express: 4.17.1
   serve-static: 1.14.1
   vite: 2.3.4
   vite-plugin-components: 0.9.2_vite@2.3.4
-  vite-plugin-icons: 0.5.1_@vue+compiler-sfc@3.0.11
+  vite-plugin-icons: 0.5.1_190614155cb844222834a95023710078
   vite-plugin-pages: 0.12.1_vite@2.3.4+vue@3.0.11
   vite-plugin-vue-layouts: 0.3.1_vite@2.3.4
   vite-plugin-windicss: 0.16.0_vite@2.3.4
@@ -39,6 +44,7 @@ dependencies:
   vue-router: 4.0.8_vue@3.0.11
 
 devDependencies:
+  '@iconify/json': 1.1.348
   '@types/compression': 1.7.0
   '@types/express': 4.17.11
   '@types/node': 15.6.1
@@ -71,6 +77,10 @@ packages:
   /@iconify/json-tools/1.0.10:
     resolution: {integrity: sha512-LFelJDOLZ6JHlmlAkgrvmcu4hpNPB91KYcr4f60D/exzU1eNOb4/KCVHIydGHIQFaOacIOD+Xy+B7P1z812cZg==}
     dev: false
+
+  /@iconify/json/1.1.348:
+    resolution: {integrity: sha512-ZOMK8XRQU1gUeGhnNY2lQdGWzqdTH66efzos8OT7IgjFYoUcVCdZYoy1IF+Uh4Do9eEqjmNMiF7NGphxJJBFFQ==}
+    dev: true
 
   /@nodelib/fs.scandir/2.1.4:
     resolution: {integrity: sha512-33g3pMJk3bg5nXbL/+CY6I2eJDzZAni49PfJnL5fghPTggPvBd/pFNSgJsdAgWptuFu7qq/ERvOYFlhvsLTCKA==}
@@ -266,6 +276,33 @@ packages:
 
   /@vue/shared/3.0.11:
     resolution: {integrity: sha512-b+zB8A2so8eCE0JsxjL24J7vdGl8rzPQ09hZNhystm+KqSbKcAej1A+Hbva1rCMmTTqA+hFnUSDc5kouEo0JzA==}
+
+  /@vueuse/core/4.11.1_vue@3.0.11:
+    resolution: {integrity: sha512-69PdXDVLqZgmjFLbhqN+3Yp/29BRjKtk83UoeVv6csPIPB0DG7SFfsmZbnuSouEetgHXyFSKzty7+4S8GwEyWA==}
+    dependencies:
+      '@vueuse/shared': 4.11.1_vue@3.0.11
+      vue-demi: 0.9.0_vue@3.0.11
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
+  /@vueuse/head/0.5.1_vue@3.0.11:
+    resolution: {integrity: sha512-xt6qgtItb4z/7vp664opQc0c2+ZoU9itMfvpmg4+h0uJcEnhl7LYxO4V+G8H7EVki7SyXDIFMfoCiCFaJrArmg==}
+    peerDependencies:
+      vue: '>=3'
+    dependencies:
+      vue: 3.0.11
+    dev: false
+
+  /@vueuse/shared/4.11.1_vue@3.0.11:
+    resolution: {integrity: sha512-9ye1Y6AwjAsbbPSVoWvOVFbObPcEe5ZFV2eU560+Ii+LGhvP8NhH+lyReuuhTzjVL8kEYR6mWRCRqK3rQc7dag==}
+    dependencies:
+      vue-demi: 0.9.0_vue@3.0.11
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
 
   /@windicss/plugin-utils/0.16.0:
     resolution: {integrity: sha512-Gu6iHqFnqfxE0J8Oa74+2W5L2052ptqEHBtPaOuXOFgIMTJAT2KoXb6v+/Z0ldHsxVC1q+MSsom877SJ0cL2iA==}
@@ -2336,13 +2373,14 @@ packages:
       - supports-color
     dev: false
 
-  /vite-plugin-icons/0.5.1_@vue+compiler-sfc@3.0.11:
+  /vite-plugin-icons/0.5.1_190614155cb844222834a95023710078:
     resolution: {integrity: sha512-snEQYVnZ7NFEShFpki3vL9vj8k7M60PO6SXQTZgzIgrwlVsTsGzgsLw8B73v4DzEygPS7wuw3q6XqlZDVUMSiQ==}
     peerDependencies:
       '@iconify/json': '*'
       '@vue/compiler-sfc': ^3.0.2
       vue-template-compiler: ^2.6.12
     dependencies:
+      '@iconify/json': 1.1.348
       '@iconify/json-tools': 1.0.10
       '@vue/compiler-sfc': 3.0.11_vue@3.0.11
       vue-template-es2015-compiler: 1.9.1
@@ -2407,6 +2445,20 @@ packages:
       rollup: 2.49.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: false
+
+  /vue-demi/0.9.0_vue@3.0.11:
+    resolution: {integrity: sha512-f8vVUpC726YXv99fF/3zHaw5CUYbP5H/DVWBN+pncXM8P2Uz88kkffwj9yD7MukuVzPICDHNrgS3VC2ursaP7g==}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-beta.1
+      vue: ^2.6.0 || >=3.0.0-rc.1
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.0.11
     dev: false
 
   /vue-router/4.0.8_vue@3.0.11:

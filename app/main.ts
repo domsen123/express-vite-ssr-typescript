@@ -1,10 +1,15 @@
+import 'windi.css';
+import './styles/main.css';
 import App from './App.vue';
 import { createSSRApp } from 'vue';
 import { createRouter } from './router';
+import { createHead } from '@vueuse/head';
 
 export const createApp = () => {
   const app = createSSRApp(App);
   const router = createRouter();
-  app.use(router);
+
+  const head = createHead();
+  app.use(router).use(head);
   return { app, router };
 };
