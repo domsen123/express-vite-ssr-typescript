@@ -19,5 +19,5 @@ export const SignInService = async (
     username: user.username,
   };
   const token = encode(appUser, JWT_TOKEN_SECRET);
-  return { user, token };
+  return { user: appUser, token };
 };

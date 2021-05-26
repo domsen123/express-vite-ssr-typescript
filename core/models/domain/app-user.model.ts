@@ -13,3 +13,12 @@ export interface AppUserWithAvatar extends AppUser {
 export interface AppUserWithPassword extends AppUser {
   password: string;
 }
+
+export const getBlankUserWithAvatar = (): AppUserWithAvatar => ({
+  firstname: '',
+  lastname: '',
+  displayname: '',
+  username: '',
+  mail: '',
+  avatar: '',
+});

@@ -9,8 +9,9 @@ export const isAuthenticated = async (
   next: NextFunction
 ) => {
   try {
-    const token = cookies.load(USER_TOKEN, req);
-    if (!token) throw { status: 401, message: 'Unauthenticated [NO COOKIE]' };
+    const token: string | undefined = cookies.load(USER_TOKEN, req);
+    if (!token || token === 'undefined')
+      throw { status: 401, message: 'Unauthenticated [NO COOKIE]' };
     const user = decode(token, JWT_TOKEN_SECRET);
     if (!user) throw { status: 401, message: 'Unauthenticated [NO USER]' };
     req.user = user;

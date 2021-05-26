@@ -8,6 +8,9 @@ export class AuthRepository implements AppAuthRepository {
   private getSignInUrl() {
     return `/signIn`;
   }
+  private getCheckAuthUrl() {
+    return `/checkAuth`;
+  }
   public async signIn(signInModel: AppSignInModel): Promise<AppUser> {
     try {
       const { data } = await this.axios.post<AppUser>(
@@ -16,7 +19,23 @@ export class AuthRepository implements AppAuthRepository {
       );
       return data;
     } catch (error) {
-      return error;
+      if (error.response && error.response.data) {
+        return Promise.reject(error.response.data);
+      } else {
+        return Promise.reject(error);
+      }
+    }
+  }
+  public async checkAuth(): Promise<AppUser> {
+    try {
+      const { data } = await this.axios.post<AppUser>(this.getCheckAuthUrl());
+      return data;
+    } catch (error) {
+      if (error.response && error.response.data) {
+        return Promise.reject(error.response.data);
+      } else {
+        return Promise.reject(error);
+      }
     }
   }
 }

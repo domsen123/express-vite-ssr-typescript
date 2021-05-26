@@ -1,5 +1,5 @@
 import * as Joi from 'joi';
-import { Router } from 'express';
+import { NextFunction, Request, Response, Router } from 'express';
 import {
   ContainerTypes,
   createValidator,
@@ -10,6 +10,7 @@ import { AppSignInModel } from '@/core/models/domain';
 import { SignInService } from '../services';
 import cookies from 'isomorphic-cookie';
 import { USER_TOKEN } from '@/core/constants';
+import { isAuthenticated } from '../middlewares';
 
 interface SignInRequestSchema extends ValidatedRequestSchema {
   [ContainerTypes.Body]: AppSignInModel;
@@ -41,6 +42,22 @@ export default function (router: Router): Router {
           res
         );
         res.status(200).json(user);
+      } catch (e) {
+        next(e);
+      }
+    }
+  );
+
+  router.post(
+    '/checkAuth',
+    isAuthenticated,
+    (req: Request, res: Response, next: NextFunction) => {
+      try {
+        if (req.user) {
+          res.status(200).json(req.user);
+        } else {
+          throw { status: 401, message: 'Not authenticated' };
+        }
       } catch (e) {
         next(e);
       }

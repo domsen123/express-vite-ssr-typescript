@@ -1,0 +1,39 @@
+.header-2 {
+  @apply font-weight-bold italic uppercase text-sm tracking-wider mb-5;
+}
+
+form {
+  .form-group {
+    @apply mb-3 text-sm;
+    label.form-label {
+      @apply block text-xs font-weight-medium mb-1 pl-1;
+    }
+    input.form-control {
+      @apply w-full border py-0.5 px-2;
+    }
+  }
+  .submit-group {
+    @apply flex justify-end mt-7;
+    button {
+      @apply mr-2;
+      &:last-child {
+        @apply mr-0;
+      }
+    }
+  }
+}
+
+input {
+  @apply focus:outline-none outline-none focus:shadow focus:border-gray-400;
+}
+
+button {
+  @apply py-1 px-3 bg-gray-200 uppercase text-sm font-weight-medium tracking-wide hover:bg-gray-300 hover:text-gray-800 focus:outline-none outline-none focus:shadow focus:bg-gray-300 focus:text-gray-800;
+
+  &.btn-primary {
+    @apply bg-indigo-500 text-gray-50 hover:bg-indigo-600 hover:text-gray-100 focus:bg-indigo-600 focus:text-gray-100;
+  }
+  &.btn-loading {
+    @apply cursor-wait;
+  }
+}

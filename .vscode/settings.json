@@ -11,6 +11,7 @@
     "/core/services",
     "/infrastructure/repositories",
     "/server/database/access",
-    "/server/middlewares"
+    "/server/middlewares",
+    "/infrastructure/local"
   ]
 }

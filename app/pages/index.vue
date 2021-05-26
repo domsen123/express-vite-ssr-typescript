@@ -1,9 +1,7 @@
 <template>
   <div>
-    <h1>Index Page</h1>
-    <router-link to="/">Page1</router-link>
-    <router-link to="/page2">Page2</router-link>
-    <div @click="testAxios">make call</div>
+    <router-link to="/auth">Auth</router-link>
+    <pre v-text="currentUser" />
   </div>
 </template>
 
@@ -11,15 +9,10 @@
   import { LocatorKey } from '~/symbols';
   import { injectStrict } from '~/utils';
   const locator = injectStrict(LocatorKey);
-
-  const testAxios = async () => {
-    const { data, headers, request, config } = await locator.axios.get(
-      '/test_session'
-    );
-    console.log(data);
-  };
-
-  testAxios()
-    .then()
-    .catch((error) => console.log(error));
+  const currentUser = locator.getStateService().getStateItem('currentUser');
 </script>
+
+<route lang="yaml">
+meta:
+  requiresAuth: true
+</route>

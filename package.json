@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "NODE_ENV=development TS_NODE_PROJECT=tsconfig.server.json tsnd --respawn --transpile-only -r tsconfig-paths/register server/bin/www",
+    "dev": "NODE_ENV=development TS_NODE_PROJECT=tsconfig.server.json tsnd --respawn --transpile-only --watch server -r tsconfig-paths/register server/bin/www",
     "build": "pnpm clean && pnpm build:client & pnpm build:server",
     "build:client": "vite build --ssrManifest --outDir _dist/client",
     "build:server": "vite build --ssr app/entry-server.ts --outDir _dist/server",
@@ -45,6 +45,7 @@
     "@vue/compiler-sfc": "^3.0.11",
     "nodemon": "^2.0.7",
     "pug": "^3.0.2",
+    "ts-node": "^10.0.0",
     "ts-node-dev": "^1.1.6",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.2.4",

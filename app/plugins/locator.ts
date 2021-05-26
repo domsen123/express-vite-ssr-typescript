@@ -16,5 +16,6 @@ export default {
   }) => {
     const locator = new Locator(isClient, request, response);
     app.provide(LocatorKey, locator);
+    return locator;
   },
 };

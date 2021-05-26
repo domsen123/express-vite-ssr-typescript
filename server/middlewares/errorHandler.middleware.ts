@@ -7,6 +7,7 @@ export const errorHandler = async (
   next: NextFunction
 ) => {
   res.status(error.status || 500).send({
+    status: error.status,
     message: error.message || 'Unknown Error',
     stack: error,
   });

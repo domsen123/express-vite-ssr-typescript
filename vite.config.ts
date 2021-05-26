@@ -35,7 +35,7 @@ export default defineConfig({
       extensions: ['vue'],
 
       dirs: ['app/components'],
-
+      deep: true,
       // auto import icons
       customComponentResolvers: [
         // https://github.com/antfu/vite-plugin-icons

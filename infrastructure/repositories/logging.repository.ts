@@ -26,7 +26,6 @@ export class LoggingRepository implements AppLoggingRepository {
       console.log(`[warn]: ${message}`);
     }
   }
-
   public error(message: string) {
     if (this.loggingEnabled) {
       this.logs.push({ message: message, level: LoggingLevelEnum.Error });
