@@ -1,29 +1,7 @@
-import {
-  AppSignInModel,
-  AppUser,
-  AppUserWithPassword,
-} from '@/core/models/domain';
 import { encode } from 'jwt-simple';
-import users from '@/_mock/users';
 import { JWT_TOKEN_SECRET } from '@/core/constants';
-
-/*  DB MOCK FUNCTIONS 
-    Should be in Data Access Model eg server/db-access
-*/
-const getUserByUsername = (
-  username: string
-): Promise<AppUserWithPassword | undefined> =>
-  new Promise((resolve, reject) => {
-    try {
-      setTimeout(() => {
-        const user = users.find((u) => u.username === username);
-        resolve(user);
-      }, 500);
-    } catch (error) {
-      reject(error);
-    }
-  });
-//#endregion
+import { getUserByUsername } from '@/server/database/access';
+import { AppSignInModel, AppUser } from '@/core/models/domain';
 
 export const SignInService = async (
   signInModel: AppSignInModel

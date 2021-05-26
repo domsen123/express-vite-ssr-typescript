@@ -4,11 +4,12 @@
     "_dist": false
   },
   "exportall.config.folderListener": [
-    "/infrastructure/repositories",
     "/core/constants",
     "/core/contracts/repositories",
     "/core/contracts/services",
     "/core/models/domain",
-    "/core/services"
+    "/core/services",
+    "/infrastructure/repositories",
+    "/server/database/access"
   ]
 }
