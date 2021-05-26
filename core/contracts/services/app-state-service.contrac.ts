@@ -4,7 +4,7 @@ import { Ref, ComputedRef } from 'vue';
 export const APP_STATE_KEY = 'APP_STATE_KEY';
 
 export interface AppState {
-  currentUser: AppUserWithAvatar;
+  currentUser: AppUserWithAvatar | undefined;
 }
 
 export interface AppStateService {

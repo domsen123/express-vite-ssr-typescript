@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { computed, ComputedRef, ref } from 'vue';
 import { AppAuthRepository } from '../contracts/repositories';
 import {
   AppAuthService,
@@ -24,8 +24,10 @@ export class AuthService implements AppAuthService {
   public getCurrentUser(): AppUser | undefined {
     throw new Error('Method not implemented.');
   }
-  public isLoggedIn(): boolean {
-    throw new Error('Method not implemented.');
+  public isLoggedIn(): ComputedRef<boolean> {
+    return computed(
+      () => !!this.stateService.getStateItem('currentUser').value
+    );
   }
   public async signIn(signInModel: AppSignInModel): Promise<AppUser> {
     try {

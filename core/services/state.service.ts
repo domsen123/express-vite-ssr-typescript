@@ -8,7 +8,7 @@ import {
 import { getBlankUserWithAvatar } from '../models/domain';
 
 export const INITIAL_STATE: AppState = {
-  currentUser: getBlankUserWithAvatar(),
+  currentUser: undefined,
 };
 
 export class StateService implements AppStateService {
