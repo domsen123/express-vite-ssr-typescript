@@ -7,3 +7,5 @@ declare module '*.vue' {
 declare interface Window {
   // extend the window
 }
+
+declare module 'isomorphic-cookie';

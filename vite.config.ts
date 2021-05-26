@@ -6,14 +6,17 @@ import Layouts from 'vite-plugin-vue-layouts';
 import ViteIcons, { ViteIconsResolver } from 'vite-plugin-icons';
 import ViteComponents from 'vite-plugin-components';
 import WindiCSS from 'vite-plugin-windicss';
+//import viteSSR from 'vite-ssr/plugin.js';
 
 export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'app')}/`,
+      '@/': `${path.resolve(__dirname)}/`,
     },
   },
   plugins: [
+    //viteSSR(),
     Vue(),
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
