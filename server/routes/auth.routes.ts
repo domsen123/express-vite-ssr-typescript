@@ -9,8 +9,7 @@ import {
 import { AppSignInModel } from '@/core/models/domain';
 import { SignInService } from '../services';
 import cookies from 'isomorphic-cookie';
-
-const USER_TOKEN = 'USER_TOKEN';
+import { USER_TOKEN } from '@/core/constants';
 
 interface SignInRequestSchema extends ValidatedRequestSchema {
   [ContainerTypes.Body]: AppSignInModel;

@@ -3,8 +3,9 @@ import {
   AppUser,
   AppUserWithPassword,
 } from '@/core/models/domain';
-import { encode, decode } from 'jwt-simple';
+import { encode } from 'jwt-simple';
 import users from '@/_mock/users';
+import { JWT_TOKEN_SECRET } from '@/core/constants';
 
 /*  DB MOCK FUNCTIONS 
     Should be in Data Access Model eg server/db-access
@@ -39,6 +40,6 @@ export const SignInService = async (
     mail: user.mail,
     username: user.username,
   };
-  const token = encode(appUser, `super_secure_token_secret`);
+  const token = encode(appUser, JWT_TOKEN_SECRET);
   return { user, token };
 };
