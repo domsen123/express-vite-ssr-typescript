@@ -10,6 +10,7 @@
     "/core/models/domain",
     "/core/services",
     "/infrastructure/repositories",
-    "/server/database/access"
+    "/server/database/access",
+    "/server/middlewares"
   ]
 }
