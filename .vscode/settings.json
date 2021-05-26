@@ -2,5 +2,13 @@
   "files.exclude": {
     "node_modules": true,
     "_dist": false
-  }
+  },
+  "exportall.config.folderListener": [
+    "/infrastructure/repositories",
+    "/core/constants",
+    "/core/contracts/repositories",
+    "/core/contracts/services",
+    "/core/models/domain",
+    "/core/services"
+  ]
 }
