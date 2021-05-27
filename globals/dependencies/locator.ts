@@ -1,5 +1,5 @@
 import appConfig from '@/config/app-config';
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
 import {
   AppAuthRepository,
   AppLoggingRepository,
@@ -59,6 +59,25 @@ export default class Locator implements AppLocator {
         config.headers['Cookie'] = `USER_TOKEN=${cookie}`;
       }
       return config;
+    });
+    this.axios.interceptors.response.use(undefined, (error: AxiosError) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        'Unknown Error';
+
+      this.getLoggingService().error(message);
+
+      const statusCode = error.response ? error.response.status : null;
+      if (statusCode === 404) {
+        // TODO NOT FOUND
+      }
+
+      if (statusCode === 401) {
+        // TODO NOT AUTHORIZED
+      }
+      return Promise.reject(error);
     });
   }
 

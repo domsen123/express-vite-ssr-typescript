@@ -1,3 +1,4 @@
 <template lang="pug">
-router-view
+.flex.h-screen
+  router-view
 </template>

@@ -14,15 +14,18 @@ export class AuthService implements AppAuthService {
     private stateService: AppStateService
   ) {}
 
-  private setCurrentUser(user: AppUser) {
-    const appUser: AppUserWithAvatar = {
-      ...user,
-      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-    };
+  private setCurrentUser(user: AppUser | undefined) {
+    let appUser: AppUserWithAvatar | undefined = undefined;
+    if (user) {
+      appUser = {
+        ...user,
+        avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
+      };
+    }
     this.stateService.setStateItem('currentUser', appUser);
   }
   public getCurrentUser(): AppUser | undefined {
-    throw new Error('Method not implemented.');
+    return this.stateService.getStateItem('currentUser').value;
   }
   public isLoggedIn(): ComputedRef<boolean> {
     return computed(
@@ -35,7 +38,7 @@ export class AuthService implements AppAuthService {
       this.setCurrentUser(user);
       return user;
     } catch (error) {
-      this.loggingService.error(error.message);
+      //this.loggingService.error(error.message);
       return Promise.reject(error);
     }
   }
@@ -46,11 +49,15 @@ export class AuthService implements AppAuthService {
       this.setCurrentUser(user);
       return user;
     } catch (error) {
-      this.loggingService.error(error.message);
+      //this.loggingService.error(error.message);
+      this.setCurrentUser(undefined);
       return Promise.reject(error);
     }
   }
-  public signOut(): Promise<void> {
-    throw new Error('Method not implemented.');
+  public async signOut(): Promise<void> {
+    try {
+      await this.authRepo.signOut();
+      this.setCurrentUser(undefined);
+    } catch (error) {}
   }
 }
