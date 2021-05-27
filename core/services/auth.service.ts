@@ -6,9 +6,11 @@ import {
   AppStateService,
 } from '../contracts/services';
 import { AppUser, AppSignInModel, AppUserWithAvatar } from '../models/domain';
+import { getUserAvatarUrl } from './avatar.service';
 
 export class AuthService implements AppAuthService {
   constructor(
+    private avatarEndpointUrl: string,
     private authRepo: AppAuthRepository,
     private loggingService: AppLoggingService,
     private stateService: AppStateService
@@ -19,7 +21,7 @@ export class AuthService implements AppAuthService {
     if (user) {
       appUser = {
         ...user,
-        avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
+        avatar: getUserAvatarUrl(user.mail, this.avatarEndpointUrl),
       };
     }
     this.stateService.setStateItem('currentUser', appUser);

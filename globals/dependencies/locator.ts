@@ -131,6 +131,7 @@ export default class Locator implements AppLocator {
   public getAuthService(): AppAuthService {
     if (!this.authService) {
       this.authService = new AuthService(
+        appConfig.avatarEndpointUrl ?? '',
         this.getAuthRepo(),
         this.getLoggingService(),
         this.getStateService()
