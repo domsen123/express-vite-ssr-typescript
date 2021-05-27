@@ -1,5 +1,6 @@
 <template lang="pug">
 .min-w-screen.min-h-screen.bg-gray-100.text-gray-700
+  AppToast
   router-view
 </template>
 

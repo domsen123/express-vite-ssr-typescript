@@ -17,11 +17,17 @@ button(:class="buttonClasses" :disabled="loading" :type="submit ? 'submit' : 'bu
       loading?: boolean;
       submit?: boolean;
       icon?: boolean;
+      round?: boolean;
+      link?: boolean;
+      dark?: boolean;
     }>();
 
   const buttonClasses = computed(() => ({
     'btn-primary': props.primary,
     'btn-loading': props.loading,
     'btn-icon': props.icon,
+    'btn-round': props.round,
+    'btn-link': props.link,
+    'btn-dark': props.dark,
   }));
 </script>
