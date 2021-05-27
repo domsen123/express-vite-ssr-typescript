@@ -1,15 +1,14 @@
 import fs from 'fs';
 import path from 'path';
-import express from 'express';
-import serveStatic from 'serve-static';
-import compression from 'compression';
-import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
 import morgan from 'morgan';
-import { createServer as createViteServer, ViteDevServer } from 'vite';
-import cookies from 'isomorphic-cookie';
+import express from 'express';
+import bodyParser from 'body-parser';
+import compression from 'compression';
 import initiateRoutes from './routes';
-import { errorHandler } from './middlewares/errorHandler.middleware';
+import serveStatic from 'serve-static';
+import cookies from 'isomorphic-cookie';
+import cookieParser from 'cookie-parser';
+import { createServer as createViteServer, ViteDevServer } from 'vite';
 
 export const createServer = async (
   root = process.cwd(),

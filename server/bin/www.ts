@@ -1,6 +1,6 @@
-import appConfig from '@/config/app-config';
-import { createServer } from '../server';
 import httpServer from 'http';
+import { createServer } from '../server';
+import appConfig from '@/config/app-config';
 
 /**
  * Normalize a port into a number, string, or false.

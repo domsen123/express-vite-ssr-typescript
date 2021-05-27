@@ -1,5 +1,5 @@
+import { ComputedRef } from 'vue';
 import { AppUserWithAvatar } from '@/core/models/domain';
-import { Ref, ComputedRef } from 'vue';
 
 export const APP_STATE_KEY = 'APP_STATE_KEY';
 

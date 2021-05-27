@@ -1,6 +1,6 @@
 import { Ref } from 'vue';
-import { AppStorageRepository } from '../contracts/repositories';
 import { AppStorageService } from '../contracts/services';
+import { AppStorageRepository } from '../contracts/repositories';
 
 export class StorageService implements AppStorageService {
   constructor(private storageRepo: AppStorageRepository) {}

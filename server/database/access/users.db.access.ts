@@ -1,5 +1,5 @@
-import { AppUserWithPassword } from '@/core/models/domain';
 import users from '@/_mock/users';
+import { AppUserWithPassword } from '@/core/models/domain';
 
 export const getUserByUsername = (
   username: string

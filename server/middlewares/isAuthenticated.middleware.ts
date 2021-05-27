@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
-import cookies from 'isomorphic-cookie';
-import { JWT_TOKEN_SECRET, USER_TOKEN } from '@/core/constants';
 import { decode } from 'jwt-simple';
+import cookies from 'isomorphic-cookie';
+import { NextFunction, Request, Response } from 'express';
+import { JWT_TOKEN_SECRET, USER_TOKEN } from '@/core/constants';
 
 export const isAuthenticated = async (
   req: Request,

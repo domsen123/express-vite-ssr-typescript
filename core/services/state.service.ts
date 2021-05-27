@@ -1,11 +1,10 @@
-import { computed, ComputedRef, ref, Ref, toRef } from 'vue';
+import { computed, ComputedRef } from 'vue';
 import {
   AppState,
   AppStateService,
   AppStorageService,
   APP_STATE_KEY,
 } from '../contracts/services';
-import { getBlankUserWithAvatar } from '../models/domain';
 
 export const INITIAL_STATE: AppState = {
   currentUser: undefined,

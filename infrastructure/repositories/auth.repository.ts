@@ -1,6 +1,6 @@
-import { AppAuthRepository } from '@/core/contracts/repositories';
-import { AppSignInModel, AppUser } from '@/core/models/domain';
 import { AxiosInstance } from 'axios';
+import { AppSignInModel, AppUser } from '@/core/models/domain';
+import { AppAuthRepository } from '@/core/contracts/repositories';
 
 export class AuthRepository implements AppAuthRepository {
   constructor(private axios: AxiosInstance) {}

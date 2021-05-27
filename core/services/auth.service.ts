@@ -1,12 +1,12 @@
 import { computed, ComputedRef, ref } from 'vue';
+import { getUserAvatarUrl } from './avatar.service';
 import { AppAuthRepository } from '../contracts/repositories';
+import { AppUser, AppSignInModel, AppUserWithAvatar } from '../models/domain';
 import {
   AppAuthService,
   AppLoggingService,
   AppStateService,
 } from '../contracts/services';
-import { AppUser, AppSignInModel, AppUserWithAvatar } from '../models/domain';
-import { getUserAvatarUrl } from './avatar.service';
 
 export class AuthService implements AppAuthService {
   constructor(

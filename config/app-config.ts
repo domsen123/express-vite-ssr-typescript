@@ -1,7 +1,7 @@
-import { AppConfig } from '@/core/models/config/app-config.model';
 import devConfig from './app.config.development';
 import prodConfig from './app.config.development';
 import stagingConfig from './app.config.development';
+import { AppConfig } from '@/core/models/config/app-config.model';
 
 const env = process.env.NODE_ENV;
 let appConfig: AppConfig;

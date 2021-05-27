@@ -1,5 +1,5 @@
-import { AppSignInModel, AppUser } from '@/core/models/domain';
 import { ComputedRef } from 'vue';
+import { AppSignInModel, AppUser } from '@/core/models/domain';
 
 export interface AppAuthService {
   getCurrentUser(): AppUser | undefined;

@@ -1,6 +1,6 @@
+import { Ref } from 'vue';
 import { useSessionStorage, useStorage } from '@vueuse/core';
 import { AppStorageRepository } from '@/core/contracts/repositories';
-import { Ref } from 'vue';
 
 export class StorageRepository implements AppStorageRepository {
   private storage: Record<string, Ref<any>> = {};

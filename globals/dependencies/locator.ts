@@ -1,5 +1,9 @@
+import { Request, Response } from 'express';
+import cookies from 'isomorphic-cookie';
 import appConfig from '@/config/app-config';
+import { USER_TOKEN } from '@/core/constants';
 import axios, { AxiosError, AxiosInstance } from 'axios';
+import { StorageRepository } from '@/infrastructure/local';
 import {
   AppAuthRepository,
   AppLoggingRepository,
@@ -21,10 +25,6 @@ import {
   AuthRepository,
   LoggingRepository,
 } from '@/infrastructure/repositories';
-import { Request, Response } from 'express';
-import cookies from 'isomorphic-cookie';
-import { StorageRepository } from '@/infrastructure/local';
-import { USER_TOKEN } from '@/core/constants';
 
 export interface AppLocator {
   axios: AxiosInstance;

@@ -1,4 +1,9 @@
 import * as Joi from 'joi';
+import cookies from 'isomorphic-cookie';
+import { SignInService } from '../services';
+import { USER_TOKEN } from '@/core/constants';
+import { isAuthenticated } from '../middlewares';
+import { AppSignInModel } from '@/core/models/domain';
 import { NextFunction, Request, Response, Router } from 'express';
 import {
   ContainerTypes,
@@ -6,11 +11,6 @@ import {
   ValidatedRequest,
   ValidatedRequestSchema,
 } from 'express-joi-validation';
-import { AppSignInModel } from '@/core/models/domain';
-import { SignInService } from '../services';
-import cookies from 'isomorphic-cookie';
-import { USER_TOKEN } from '@/core/constants';
-import { isAuthenticated } from '../middlewares';
 
 interface SignInRequestSchema extends ValidatedRequestSchema {
   [ContainerTypes.Body]: AppSignInModel;
