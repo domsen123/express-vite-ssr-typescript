@@ -10,8 +10,6 @@
 
 - 📑 [Layout system](./src/layouts)
 
-- 📲 [PWA](https://github.com/antfu/vite-plugin-pwa)
-
 - 🎨 [Windi CSS](https://github.com/windicss/windicss) - on-demand Tailwind CSS with speed
 
 - 😃 [Use icons from any icon sets, with no compromise](./src/components)
